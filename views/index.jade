@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1.title Fuel Consumption
+	form.consumption(name="register", action="/register", method="post")
+		div.consumption-title
+			span.consumption-header-label= average + ' l / 100 km'
+		input.consumption-input(type="text", placeholder="Kilometers", name="km")
+		input.consumption-input(type="text", placeholder="Liters", name="l")
+		input.consumption-input(type="text", placeholder="Date", name="d")
+		input.register-button(type="submit", value="Register")
+
+	table.history
+		each consumption, i in consumptions
+			tr
+				td= consumption.d
+				td= consumption.l + 'l'
+				td= consumption.km + 'km'
